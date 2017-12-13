@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  web:
+    restart: always
+    image: python:3.6.3
+    command: /bin/bash -c "pip install -e . && django-admin migrate && django-admin runserver 0.0.0.0:8000"
+    environment:
+      - DJANGO_SETTINGS_MODULE=bank_accounts.settings
+      - DEBUG=True
+      - POSTGRES_NAME=bank_accounts
+      - POSTGRES_USER=dev
+      - POSTGRES_PASSWORD=pass
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+    volumes:
+      - .:/src
+    working_dir: /src
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+
+  postgres:
+    restart: always
+    image: postgres:9.6.6
+    environment:
+      - PGDATA=/var/lib/postgresql/data/pgdata
+      - POSTGRES_USER=dev
+      - POSTGRES_PASSWORD=pass
+      - POSTGRES_DB=bank_accounts
+    volumes:
+      - db-volume:/var/lib/postgresql/data/pgdata
+    ports:
+      - "10864:5432"
+
+volumes:
+  db-volume:
+    driver: local
