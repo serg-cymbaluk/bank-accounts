@@ -1,5 +1,26 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-  <h1>Accounts</h1>
+  <h1>Accounts <a class="btn btn-default" href="{% url 'create-account' %}">Create new</a></h1>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>IBAN</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for account in accounts %}
+        <tr>
+          <td>{{ account.id }}</td>
+          <td>{{ account.user.first_name }}</td>
+          <td>{{ account.user.last_name }}</td>
+          <td>{{ account.iban }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 {% endblock %}

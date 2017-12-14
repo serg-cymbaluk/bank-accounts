@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^auth/', include('allauth.urls')),
     url(r'^login/$', login),
     url(r'^$', list_accounts),
+    url(r'^accounts/', include('bank_accounts.accounts.urls')),
 ]
