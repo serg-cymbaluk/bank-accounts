@@ -11,6 +11,18 @@
     {% endblock %}
   </head>
   <body>
+    {% if request.user.is_authenticated %}
+      <nav class="navbar navbar-default">
+        <div class="collapse navbar-collapse">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'index' %}">Bank Accounts</a>
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{% url 'logout' %}">Sign out</a></li>
+          </ul>
+        </div>
+      </nav>
+    {% endif %}
     <div class="container">
       <div class="page-header">
         {% block header %}{% endblock %}

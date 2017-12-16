@@ -6,9 +6,13 @@
   <link rel="stylesheet" href="{% static 'css/login.css' %}" />
 {% endblock %}
 
+{% block header %}
+  <h1>Bank Accounts</h1>
+{% endblock %}
+
 {% block content %}
   <div class="page-container">
     <h3>Login with:</h3>
-    <a href="/auth/google/login" class="btn btn-default"><img height="100" width="100" src="{% static 'img/google-logo.svg' %}"</a>
+    <a href="/auth/google/login" class="btn btn-default"><img height="100" width="100" src="{% static 'img/google-logo.svg' %}" /></a>
   </div>
 {% endblock %}
