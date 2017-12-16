@@ -1,8 +1,13 @@
 {% extends 'layout.html' %}
 
-{% block content %}
-  <h1>Accounts <a class="btn btn-default" href="{% url 'create-account' %}">Create new</a></h1>
+{% block header %}
+  <h1>
+    Accounts
+    <a class="btn btn-primary btn-lg" href="{% url 'create-account' %}">Create new</a>
+  </h1>
+{% endblock %}
 
+{% block content %}
   <table class="table table-striped">
     <thead>
       <tr>
@@ -10,15 +15,22 @@
         <th>First name</th>
         <th>Last name</th>
         <th>IBAN</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       {% for account in accounts %}
         <tr>
           <td>{{ account.id }}</td>
-          <td>{{ account.user.first_name }}</td>
+          <td><a href="{% url 'view-account' pk=account.id %}">{{ account.user.first_name }}</a></td>
           <td>{{ account.user.last_name }}</td>
           <td>{{ account.iban }}</td>
+          <td>
+            <div class="btn-group pull-right">
+              <a class="btn btn-warning btn-sm" href="{% url 'update-account' pk=account.id %}">Edit</a>
+              <a class="btn btn-danger btn-sm" href="{% url 'delete-account' pk=account.id %}">Delete</a>
+            </div>
+          </td>
         </tr>
       {% endfor %}
     </tbody>

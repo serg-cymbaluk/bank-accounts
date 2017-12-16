@@ -1,5 +1,17 @@
 {% extends 'layout.html' %}
 
+{% block header %}
+  <h1>Delete account <strong>{{ account.full_name }}</strong></h1>
+{% endblock %}
+
 {% block content %}
-  <h1>Delete account</h1>
+  <h3 class="text-danger">Do you really want to delete this account?</h3>
+
+  <form method="POST" action="">
+    {% csrf_token %}
+    <div class="btn-group">
+      <a class="btn btn-default btn-lg" href="{% url 'list-accounts' %}">Cancel</a>
+      <input class="btn btn-danger btn-lg" type="submit" value="Delete" />
+    </div>
+  </form>
 {% endblock %}
