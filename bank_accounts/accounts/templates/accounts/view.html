@@ -1,5 +1,7 @@
 {% extends 'layout.html' %}
 
+{% load iban %}
+
 {% block header %}
   <h1>Account: <strong>{{ account.full_name }}</strong></h1>
 {% endblock %}
@@ -20,7 +22,7 @@
     </tr>
     <tr>
       <th>IBAN</th>
-      <td>{{ account.iban }}</td>
+      <td>{{ account.iban | iban }}</td>
     </tr>
     <tr>
       <th>Date created</th>

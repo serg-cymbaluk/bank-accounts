@@ -1,0 +1,11 @@
+<div class="form-inline iban">
+  {% spaceless %}
+    {% for widget in widget.subwidgets %}
+      <input type="text" class="form-control"
+             size="4" maxlength="4"
+             name="{{ widget.name }}"
+             value="{{ widget.value|default:'' }}" />
+      {% if not forloop.last %}-{% endif %}
+    {% endfor %}
+  {% endspaceless %}
+</div>
