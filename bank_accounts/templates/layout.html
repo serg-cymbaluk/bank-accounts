@@ -19,6 +19,7 @@
             <a class="navbar-brand" href="{% url 'index' %}">Bank Accounts</a>
           </div>
           <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">{{ request.user.get_full_name }}</a></li>
             <li><a href="{% url 'logout' %}">Sign out</a></li>
           </ul>
         </div>

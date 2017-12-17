@@ -9,7 +9,3 @@ class Account(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     iban = models.CharField(max_length=34)
     creator = models.ForeignKey(User, related_name='accounts')
-
-    @property
-    def full_name(self):
-        return '{} {}'.format(self.user.first_name, self.user.last_name)

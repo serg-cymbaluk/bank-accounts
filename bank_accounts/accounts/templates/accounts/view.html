@@ -3,7 +3,7 @@
 {% load iban %}
 
 {% block header %}
-  <h1>Account: <strong>{{ account.full_name }}</strong></h1>
+  <h1>Account: <strong>{{ account.user.get_full_name }}</strong></h1>
 {% endblock %}
 
 {% block content %}

@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+
+{% block header %}
+  <h1>No Permissions</h1>
+{% endblock %}
+
+{% block content %}
+  <h3 class="text-danger">You have no permissions to work with user accounts.</h3>
+  <p>Please contact <a href="mailto:admin@localhost">the site administrator</a> to get a staff status.</p>
+  <p>Your user ID is <strong>{{ request.user.id }}</strong></p>
+{% endblock %}

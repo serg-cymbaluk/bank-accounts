@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block header %}
-  <h1>Update account data <strong>{{ account.full_name }}</strong></h1>
+  <h1>Update account data <strong>{{ account.user.get_full_name }}</strong></h1>
 {% endblock %}
 
 {% block content %}
