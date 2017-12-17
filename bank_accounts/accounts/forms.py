@@ -18,7 +18,9 @@ class IBANWidget(widgets.MultiWidget):
         super().__init__(iban_widgets, attrs=attrs)
 
     def decompress(self, value):
-        return [value[i:i+4] for i in range(0, len(value), 4)]
+        if (value):
+            return [value[i:i+4] for i in range(0, len(value), 4)]
+        return []
 
     def format_output(self, rendered_widgets):
         return ''.join(rendered_widgets)
