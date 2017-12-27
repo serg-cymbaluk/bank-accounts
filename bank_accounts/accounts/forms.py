@@ -1,6 +1,7 @@
 from django import forms
-from django.core import validators
 from django.forms import widgets
+
+from .validators import IBANValidator
 
 
 class IBANWidget(widgets.MultiWidget):
@@ -36,8 +37,6 @@ class AccountForm(forms.Form):
     last_name = forms.CharField(required=True, max_length=30)
     iban = forms.CharField(
         required=True,
-        min_length=15,
-        max_length=34,
-        validators=[validators.RegexValidator(r'^[a-zA-Z0-9]+$')],
+        validators=[IBANValidator()],
         widget=IBANWidget
     )
