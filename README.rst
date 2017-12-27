@@ -26,3 +26,11 @@ How to Setup
     docker-compose exec web django-admin createsuperuser
 
 4. Open address http://localhost:8000
+
+5. Login using your a Google account.
+
+6. Open http://localhost:8000/admin/auth/user/ in other browser or session using superuser account.
+
+7. Give the Google user "Staff status".
+
+8. Refresh Home page for Google user.
